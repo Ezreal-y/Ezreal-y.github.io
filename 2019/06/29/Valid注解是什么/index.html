@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>@Valid注解是什么 | LGY&#39;S BLOG</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="#@Valid@Valid用于验证注解是否符合要求，直接加在变量user之前，在变量中添加验证信息的要求，当不符合要求时就会在方法中返回message 的错误提示信息。">
+  <meta name="description" content="@Valid@Valid用于验证注解是否符合要求，直接加在变量user之前，在变量中添加验证信息的要求，当不符合要求时就会在方法中返回message 的错误提示信息。">
 <meta name="keywords" content="注解">
 <meta property="og:type" content="article">
 <meta property="og:title" content="@Valid注解是什么">
 <meta property="og:url" content="http://yoursite.com/2019/06/29/Valid注解是什么/index.html">
 <meta property="og:site_name" content="LGY&#39;S BLOG">
-<meta property="og:description" content="#@Valid@Valid用于验证注解是否符合要求，直接加在变量user之前，在变量中添加验证信息的要求，当不符合要求时就会在方法中返回message 的错误提示信息。">
+<meta property="og:description" content="@Valid@Valid用于验证注解是否符合要求，直接加在变量user之前，在变量中添加验证信息的要求，当不符合要求时就会在方法中返回message 的错误提示信息。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-29T08:14:14.757Z">
+<meta property="og:updated_time" content="2019-06-29T09:25:58.590Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="@Valid注解是什么">
-<meta name="twitter:description" content="#@Valid@Valid用于验证注解是否符合要求，直接加在变量user之前，在变量中添加验证信息的要求，当不符合要求时就会在方法中返回message 的错误提示信息。">
+<meta name="twitter:description" content="@Valid@Valid用于验证注解是否符合要求，直接加在变量user之前，在变量中添加验证信息的要求，当不符合要求时就会在方法中返回message 的错误提示信息。">
   
     <link rel="alternative" href="/atom.xml" title="LGY&#39;S BLOG" type="application/atom+xml">
   
@@ -88,7 +88,7 @@
 		        
 					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 		        
-					<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+					<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/qi-le-ru-he/activities" title="zhihu"><i class="icon-zhihu"></i></a>
 		        
 			</div>
 		</nav>
@@ -129,7 +129,7 @@
 			        
 						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
 			        
-						<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+						<a class="zhihu" target="_blank" href="https://www.zhihu.com/people/qi-le-ru-he/activities" title="zhihu"><i class="icon-zhihu"></i></a>
 			        
 				</div>
 			</nav>
@@ -175,7 +175,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>#@Valid<br>@Valid用于验证注解是否符合要求，直接加在变量user之前，在变量中添加验证信息的要求，当不符合要求时就会在方法中返回message 的错误提示信息。<br><a id="more"></a><br>    @RestController<br>    @RequestMapping(“/user”)<br>    public class UserController {<br>        @PostMapping<br>        public User create (@Valid @RequestBody User user) {<br>            System.out.println(user.getId());<br>            System.out.println(user.getUsername());<br>            System.out.println(user.getPassword());<br>            user.setId(“1”);<br>            return user;<br>        }<br>    }<br>然后在User类中添加验证信息的要求：</p>
+        <h2 id="Valid"><a href="#Valid" class="headerlink" title="@Valid"></a>@Valid</h2><p>@Valid用于验证注解是否符合要求，直接加在变量user之前，在变量中添加验证信息的要求，当不符合要求时就会在方法中返回message 的错误提示信息。<br><a id="more"></a><br>    @RestController<br>    @RequestMapping(“/user”)<br>    public class UserController {<br>        @PostMapping<br>        public User create (@Valid @RequestBody User user) {<br>            System.out.println(user.getId());<br>            System.out.println(user.getUsername());<br>            System.out.println(user.getPassword());<br>            user.setId(“1”);<br>            return user;<br>        }<br>    }<br>然后在User类中添加验证信息的要求：</p>
 <pre><code>public class User {
    private String id;  
 
@@ -183,10 +183,37 @@
       private String password;
 }
 </code></pre><p>@NotBlank 注解所指的 password 字段，表示验证密码不能为空，如果为空的话，上面 Controller 中的 create 方法会将message 中的”密码不能为空”返回。</p>
-<p>当然也可以添加其他验证信息的要求：</p>
-<table><thead><tr><td>限制</td><td>说明</td></tr><tr><td>@Null</td><td>限制只能为null</td></tr><tr><td>@NotNull</td><td>限制必须不为null</td></tr><tr><td>@AssertFalse</td><td>限制必须为false</td></tr><tr><td>@AssertTrue</td><td>限制必须为true</td></tr><tr><td>@DecimalMax(value)</td><td>限制必须为一个不大于指定值的数字</td></tr><tr><td>@DecimalMin(value)</td><td>限制必须为一个不小于指定值的数字</td></tr><tr><td>@Digits(integer,fraction)</td><td>限制必须为一个小数，且整数部分的位数不能超过integer，小数部分的位数不能超过fraction</td></tr><tr><td>@Max(value)</td><td>限制必须一个不大于指定的数字</td></tr><tr><td>@Min(value)</td><td>限制必须一个不小于指定的数字</td></tr><tr><td>@Future</td><td>限制必须是一个将来的日期</td></tr><tr><td>@Past</td><td>限制必须是一个过去的日期</td></tr><tr><td>@Pattern(value)</td><td>限制必须符合指定的正则表达式</td></tr><tr><td>@Size(max,min)</td><td>限制字符长度必须在min到max之间</td></tr><tr><td>@NotEmpty</td><td>验证注解的元素值不为null且不为空（字符串长度不为0、集合大小不为0）</td></tr><tr><td>@NotBlank</td><td>验证注解的元素值不为空（不为null、去除首位空格后长度为0），不同于@NotEmpty，@NotBlank只应用于字符串且在比较时会去除字符串的空格</td></tr><tr><td>@Email</td><td>验证注解的元素值是Email，也可以通过正则表达式和flag指定自定义的email格式</td></tr></thead></table>
-
-<p>除此之外还可以自定义验证信息的要求，例如下面的@MyConstraint:</p>
+<p>当然也可以添加其他验证信息的要求：<br>
+<table>
+    <thead>
+        <tr>
+            <td>限制</td><td>说明</td>
+        </tr>
+        <tr>
+            <td>@Null</td><td>限制只能为null</td>
+        </tr>
+        <tr>
+            <td>@NotNull</td><td>限制必须不为null</td>
+        </tr>
+        <tr>
+            <td>@AssertFalse</td><td>限制必须为false</td>
+        </tr>
+        <tr>
+            <td>@AssertTrue</td><td>限制必须为true</td>
+        </tr>
+        <tr>
+            <td>@DecimalMax(value)</td><td>限制必须为一个不大于指定值的数字</td>
+        </tr>
+        <tr>
+            <td>@DecimalMin(value)</td><td>限制必须为一个不小于指定值的数字</td>
+        </tr>
+        <tr>
+            <td>@Digits(integer,fraction)</td><td>限制必须为一个小数，且整数部分的位数不能超过integer，小数部分的位数不能超过fraction</td>
+        </tr>
+        <tr>
+            <td>@Max(value)</td><td>限制必须一个不大于指定的数字</td></tr><tr><td>@Min(value)</td><td>限制必须一个不小于指定的数字</td></tr><tr><td>@Future</td><td>限制必须是一个将来的日期</td></tr><tr><td>@Past</td><td>限制必须是一个过去的日期</td></tr><tr><td>@Pattern(value)</td><td>限制必须符合指定的正则表达式</td></tr><tr><td>@Size(max,min)</td><td>限制字符长度必须在min到max之间</td></tr><tr><td>@NotEmpty</td>
+            <td>验证注解的元素值不为null且不为空（字符串长度不为0、集合大小不为0）</td></tr><tr><td>@NotBlank</td><td>验证注解的元素值不为空（不为null、去除首位空格后长度为0），不同于@NotEmpty，@NotBlank只应用于字符串且在比较时会去除字符串的空格</td></tr><tr><td>@Email</td><td>验证注解的元素值是Email，也可以通过正则表达式和flag指定自定义的email格式</td></tr></thead></table>
+<br>除此之外还可以自定义验证信息的要求，例如下面的@MyConstraint:</p>
 <pre><code>public class User{
     privatr String id;
     @MyConstraint(message =&quot;这是一个信息&quot;)
@@ -232,6 +259,11 @@ public @interface MyConstraint {
                 <span class="tooltip-inner">
                   <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
                   <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/alipay.jpg">
+                      <span class="reward-type">支付宝</span>
+                    </div>
                     
                     
                   </div>
@@ -511,27 +543,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
+              <a href="http://http://47.107.131.242:8086/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>不要乱点</a>
             </li>
           
             <li class="search-li">
               <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接2</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接3</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接4</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接5</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接6</a>
             </li>
           
         </ul>
@@ -616,5 +632,5 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
 
 </div>
   </div>
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginModelPath":"assets/","model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true,"scale":0.5},"log":false,"pluginJsPath":"lib/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>
