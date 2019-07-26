@@ -16,7 +16,7 @@
 <meta property="og:site_name" content="LGY&#39;S BLOG">
 <meta property="og:description" content="@Valid@Valid用于验证注解是否符合要求，直接加在变量user之前，在变量中添加验证信息的要求，当不符合要求时就会在方法中返回message 的错误提示信息。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-06-29T09:25:58.590Z">
+<meta property="og:updated_time" content="2019-07-26T09:45:39.823Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="@Valid注解是什么">
 <meta name="twitter:description" content="@Valid@Valid用于验证注解是否符合要求，直接加在变量user之前，在变量中添加验证信息的要求，当不符合要求时就会在方法中返回message 的错误提示信息。">
@@ -175,7 +175,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="Valid"><a href="#Valid" class="headerlink" title="@Valid"></a>@Valid</h2><p>@Valid用于验证注解是否符合要求，直接加在变量user之前，在变量中添加验证信息的要求，当不符合要求时就会在方法中返回message 的错误提示信息。<br><a id="more"></a><br>    @RestController<br>    @RequestMapping(“/user”)<br>    public class UserController {<br>        @PostMapping<br>        public User create (@Valid @RequestBody User user) {<br>            System.out.println(user.getId());<br>            System.out.println(user.getUsername());<br>            System.out.println(user.getPassword());<br>            user.setId(“1”);<br>            return user;<br>        }<br>    }<br>然后在User类中添加验证信息的要求：</p>
+        <h2 id="Valid"><a href="#Valid" class="headerlink" title="@Valid"></a>@Valid</h2><p>@Valid用于验证注解是否符合要求，直接加在变量user之前，在变量中添加验证信息的要求，当不符合要求时就会在方法中返回message 的错误提示信息。<br><a id="more"></a>   </p>
+<pre><code>@RestController
+@RequestMapping(&quot;/user&quot;)
+public class UserController {
+    @PostMapping
+    public User create (@Valid @RequestBody User user) {
+        System.out.println(user.getId());
+        System.out.println(user.getUsername());
+        System.out.println(user.getPassword());
+        user.setId(&quot;1&quot;);
+        return user;
+    }
+}
+</code></pre><p>然后在User类中添加验证信息的要求：</p>
 <pre><code>public class User {
    private String id;  
 
